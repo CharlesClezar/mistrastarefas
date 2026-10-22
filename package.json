@@ -1,0 +1,46 @@
+{
+  "name": "minhas-tarefas-electron",
+  "version": "1.0.0",
+  "description": "Aplicativo simples de lista de tarefas",
+  "main": "main.cjs",
+  "author": "Você",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "electron .",
+    "dist:win": "npm run build && electron-builder --win portable"
+  },
+  "dependencies": {
+    "electron": "^35.0.0",
+    "electron-builder": "^26.0.12",
+    "vite": "^6.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.7.3"
+  },
+  "build": {
+    "appId": "com.minhastarefas.app",
+    "productName": "Minhas Tarefas",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "main.cjs",
+      "preload.cjs",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ]
+    }
+  }
+}
